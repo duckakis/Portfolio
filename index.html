@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nirwana Duckakis</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Animasi untuk seluruh container dan section */
+.container, header, .profile-section, .skills-section, .projects-section, 
+.experience-section, .education-section, footer {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.container.animated, header.animated, .profile-section.animated, 
+.skills-section.animated, .projects-section.animated, 
+.experience-section.animated, .education-section.animated, footer.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+header {
+    background-color: #0000FF;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px 0;
+}
+
+.profile-section img {
+    border-radius: 50%;
+    width: 225px; 
+    height: 300px; 
+    margin-right: 20px; 
+    transition: transform 0.3s ease;
+}
+
+.profile-section img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-details {
+    max-width: 600px;
+}
+
+.profile-details h2 {
+    margin-top: 0;
+}
+
+/* Contact info */
+.contact-info {
+    margin-top: 10px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+a:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+/* Skills Section */
+.skills-section, .projects-section, .experience-section, .education-section {
+    margin: 40px 0;
+}
+
+h3 {
+    color: #0000FF;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+h3:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4CAF50;
+    z-index: -1;
+    transition: top 0.3s ease;
+}
+
+h3:hover:before {
+    top: 0;
+}
+
+/* Project Section */
+.skills ul, .projects ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skills ul li, .projects ul li {
+    margin: 10px 0;
+}
+
+.project-item {
+    margin-bottom: 20px;
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease;
+}
+
+.project-item img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Experience Section */
+.experience-section {
+    margin: 40px 0;
+}
+
+.experience-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.experience-section .experience-item {
+    opacity: 1; /* Ubah menjadi 1 agar mulai terlihat */
+    transform: translateY(0); /* Reset transformasi */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    display: flex; /* Agar logo dan konten terletak bersebelahan */
+    align-items: center; /* Pusatkan secara vertikal */
+    margin-bottom: 20px; /* Tambahkan jarak antar item */
+}
+
+.experience-section .experience-item img {
+    margin-right: 15px; /* Tambahkan jarak antara gambar dan teks */
+}
+
+.experience-section .experience-item p {
+    margin: 5px 0; /* Atur jarak paragraf dalam pengalaman kerja */
+}
+
+.haguro-logo, .medco-logo {
+    width: 150px; /* Ukuran standar untuk logo PT lainnya */
+    height: 100px;
+    margin-right: 10px;
+    transition: transform 0.5s ease;
+}
+
+.haguro-logo:hover, .medco-logo:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Aturan khusus untuk logo PT Mitra */
+.mitra-logo {
+    width: 100px; /* Ukuran yang berbeda untuk PT Mitra */
+    height: 100px;
+    margin-right: 10px;
+    transition: transform 0.5s ease;
+}
+
+.mitra-logo:hover {
+    transform: rotate(10deg) scale(1.2);
+}
+
+/* Education Section */
+.education-section {
+    margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .profile-section {
+        flex-direction: column;
+    }
+    .profile-section img {
+        margin-bottom: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Portfolio - Nirwana Duckakis</h1>
+</header>
+
+<div class="container">
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <img src="ana.jpeg" alt="Nirwana Duckakis">
+        <div class="profile-details">
+            <h2>Nirwana Duckakis</h2>
+            <p>WEB Development, IT Technician, IT Helpdesk, IT Support</p>
+            <p><strong>Career Objective:</strong> Always taking opportunities to upgrade my skills in IT technology, while contributing to meet company needs.</p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:duckakis7@gmail.com">duckakis7@gmail.com</a></p>
+                <p>Phone: +62 896 0499 0699</p>
+                <p>Location: Kebon Jeruk, Jakarta Barat, DKI Jakarta, Indonesia</p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/nirwana-duckakis-719438241">Nirwana Duckakis</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <h3>Technical Skills</h3>
+        <ul>
+            <li>HTML, CSS, PHP, MySQL, JavaScript</li>
+            <li>Troubleshoot Software & Hardware, CCTV, Printer, PC Assembling</li>
+        </ul>
+        <h3>Non-Technical Skills</h3>
+        <ul>
+            <li>Analysis, Creativity, Critical Thinking, Problem Solving, Teamwork</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <h3>Projects</h3>
+        <div class="project-item">
+            <h4>1. Marketplace Project</h4>
+            <img src="marketplace.jpg" alt="Marketplace Project">
+            <p>Description: A fully functioning online marketplace.</p>
+            <!-- Repeat image for 14 photos -->
+        </div>
+        <div class="project-item">
+            <h4>2. Wedding Invitation</h4>
+            <img src="wedding.png" alt="Wedding Invitation Project">
+            <p>Description: A digital wedding invitation.</p>
+            <p>Link: <a href="https://duckakis.github.io/wedding-invitation/">https://duckakis.github.io/wedding-invitation/</a></p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+<section class="experience-section">
+    <h3>Work Experience</h3>
+    <ul>
+        <li class="experience-item">
+            <img class="haguro-logo" src="haguro.png" alt="PT Haguro Logo">
+            <div>
+                <strong>PT Haguro Inspira Mandiri</strong> - IT Support / Helpdesk (May 2023 - April 2024)
+                <p>Includes providing comprehensive assistance and
+technical support, including monitoring, analysis,
+maintenance and troubleshooting for CCTV systems.
+Responsible for ensuring the smooth operation of the
+internet network in several Happy Kiddy stores
+nationwide. Additionally, it serves as a dedicated IT
+support resource in Happy Kiddy's corporate offices,
+adequate in resolving various issues related to PCs,
+printers, and meeting other user needs.</p>
+            </div>
+        </li>
+        <li class="experience-item">
+            <img class="medco-logo" src="medco.jpg" alt="PT Medco Logo">
+            <div>
+                <strong>PT Medco Energi Internasional (Vendor HPKOM)</strong> - IT Deployment Engineer (May 2022 - April 2023)
+                <p>Deployment Support Engineer at Energy building
+refresh the users device by handing over the old device for a
+new device. also handles troubleshooting on user device needs.
+</p>
+            </div>
+        </li>
+        <li class="experience-item">
+            <img class="mitra-logo" src="mitseri.jpg" alt="PT Mitra Logo">
+            <div>
+                <strong>PT Mitra Service Infomata</strong> - IT Engineer Freelance (March 2021 - April 2022)
+                <p>Aruba SD-WAN accesspoint Installation Hypernet - Kominfo Project <br>
+                Staging Bios dan Office 365 Astragraphia Warehouse <br>
+                ICON+ Hypernet Wifi Activation – Kominfo RPTRA Projects <br>
+                Staging and Installation Software BPJS user - PT. Harvest Perdana Kompakindo <br>
+                Android Checker & Maintenance DAV Alfamart <br>
+                Hypernet - Kominfo Project</p>
+            </div>
+        </li>
+    </ul>
+</section>
+
+
+    <!-- Education Section -->
+    <section class="education-section">
+        <h3>Education</h3>
+        <p><strong>Universitas Satya Negara Indonesia, S.Kom</strong> - Teknik Informatika (2017 - 2021), GPA: 3.16</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Nirwana Duckakis | All Rights Reserved</p>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const elements = document.querySelectorAll('.container, header, .profile-section, .skills-section, .projects-section, .experience-section, .education-section, footer');
+        
+        function animateOnScroll() {
+            elements.forEach(function(element) {
+                const position = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (position - windowHeight <= 0) {
+                    element.classList.add('animated');
+                } else {
+                    element.classList.remove('animated'); // Reset kelas saat elemen tidak terlihat
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Trigger on load
+    });
+</script>
+</body>
+</html>
