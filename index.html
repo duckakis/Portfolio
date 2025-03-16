@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,218 +6,217 @@
     <title>Portfolio - Nirwana Duckakis</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
-}
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-/* Animasi untuk seluruh container dan section */
-.container, header, .profile-section, .skills-section, .projects-section, 
-.experience-section, .education-section, footer {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
+        /* Animasi untuk seluruh container dan section */
+        .container, header, .profile-section, .skills-section, .projects-section, 
+        .experience-section, .education-section, footer {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
 
-.container.animated, header.animated, .profile-section.animated, 
-.skills-section.animated, .projects-section.animated, 
-.experience-section.animated, .education-section.animated, footer.animated {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .container.animated, header.animated, .profile-section.animated, 
+        .skills-section.animated, .projects-section.animated, 
+        .experience-section.animated, .education-section.animated, footer.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-header h1 {
-    margin: 0;
-}
+        header h1 {
+            margin: 0;
+        }
 
-/* Profile Section */
-.profile-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 40px 0;
-}
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 40px 0;
+        }
 
-.profile-section img {
-    border-radius: 50%;
-    width: 225px; 
-    height: 300px; 
-    margin-right: 20px; 
-    transition: transform 0.3s ease;
-}
+        .profile-section img {
+            border-radius: 50%;
+            width: 225px; 
+            height: 300px; 
+            margin-right: 20px; 
+            transition: transform 0.3s ease;
+        }
 
-.profile-section img:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
+        .profile-section img:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
 
-.profile-details {
-    max-width: 600px;
-}
+        .profile-details {
+            max-width: 600px;
+        }
 
-.profile-details h2 {
-    margin-top: 0;
-}
+        .profile-details h2 {
+            margin-top: 0;
+        }
 
-/* Contact info */
-.contact-info {
-    margin-top: 10px;
-}
+        /* Contact info */
+        .contact-info {
+            margin-top: 10px;
+        }
 
-.contact-info p {
-    margin: 5px 0;
-}
+        .contact-info p {
+            margin: 5px 0;
+        }
 
-a:hover {
-    color: #FF0000;
-    text-decoration: underline;
-    transition: color 0.3s ease;
-}
+        a:hover {
+            color: #FF0000;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
 
-/* Skills Section */
-.skills-section, .projects-section, .experience-section, .education-section {
-    margin: 40px 0;
-}
+        /* Skills Section */
+        .skills-section, .projects-section, .experience-section, .education-section {
+            margin: 40px 0;
+        }
 
-h3 {
-    color: #0000FF;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    transition: color 0.3s ease;
-}
+        h3 {
+            color: #0000FF;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            transition: color 0.3s ease;
+        }
 
-h3:before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #333;
-    z-index: -1;
-    transition: top 0.3s ease;
-}
+        h3:before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #333;
+            z-index: -1;
+            transition: top 0.3s ease;
+        }
 
-h3:hover:before {
-    top: 0;
-}
+        h3:hover:before {
+            top: 0;
+        }
 
-/* Project Section */
-.skills ul, .projects ul {
-    list-style-type: none;
-    padding: 0;
-}
+        /* Project Section */
+        .skills ul, .projects ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-.skills ul li, .projects ul li {
-    margin: 10px 0;
-}
+        .skills ul li, .projects ul li {
+            margin: 10px 0;
+        }
 
-.project-item {
-    margin-bottom: 20px;
-}
+        .project-item {
+            margin-bottom: 20px;
+        }
 
-.project-item img {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: cover;
-    border: 2px solid #ddd;
-    transition: transform 0.3s ease;
-}
+        .project-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            transition: transform 0.3s ease;
+        }
 
-.project-item img:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
+        .project-item img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
 
-/* Experience Section */
-.experience-section {
-    margin: 40px 0;
-}
+        /* Experience Section */
+        .experience-section {
+            margin: 40px 0;
+        }
 
-.experience-section ul {
-    list-style-type: none;
-    padding: 0;
-}
+        .experience-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-.experience-section .experience-item {
-    opacity: 1; /* Ubah menjadi 1 agar mulai terlihat */
-    transform: translateY(0); /* Reset transformasi */
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    display: flex; /* Agar logo dan konten terletak bersebelahan */
-    align-items: center; /* Pusatkan secara vertikal */
-    margin-bottom: 20px; /* Tambahkan jarak antar item */
-}
+        .experience-section .experience-item {
+            opacity: 1; /* Ubah menjadi 1 agar mulai terlihat */
+            transform: translateY(0); /* Reset transformasi */
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            display: flex; /* Agar logo dan konten terletak bersebelahan */
+            align-items: center; /* Pusatkan secara vertikal */
+            margin-bottom: 20px; /* Tambahkan jarak antar item */
+        }
 
-.experience-section .experience-item img {
-    margin-right: 15px; /* Tambahkan jarak antara gambar dan teks */
-}
+        .experience-section .experience-item img {
+            margin-right: 15px; /* Tambahkan jarak antara gambar dan teks */
+        }
 
-.experience-section .experience-item p {
-    margin: 5px 0; /* Atur jarak paragraf dalam pengalaman kerja */
-}
+        .experience-section .experience-item p {
+            margin: 5px 0; /* Atur jarak paragraf dalam pengalaman kerja */
+        }
 
-.haguro-logo, .medco-logo {
-    width: 150px; /* Ukuran standar untuk logo PT lainnya */
-    height: 100px;
-    margin-right: 10px;
-    transition: transform 0.5s ease;
-}
+        .haguro-logo, .medco-logo {
+            width: 150px; /* Ukuran standar untuk logo PT lainnya */
+            height: 100px;
+            margin-right: 10px;
+            transition: transform 0.5s ease;
+        }
 
-.haguro-logo:hover, .medco-logo:hover {
-    transform: rotate(10deg) scale(1.1);
-}
+        .haguro-logo:hover, .medco-logo:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
 
-/* Aturan khusus untuk logo PT Mitra */
-.mitra-logo {
-    width: 100px; /* Ukuran yang berbeda untuk PT Mitra */
-    height: 100px;
-    margin-right: 10px;
-    transition: transform 0.5s ease;
-}
+        /* Aturan khusus untuk logo PT Mitra */
+        .mitra-logo {
+            width: 100px; /* Ukuran yang berbeda untuk PT Mitra */
+            height: 100px;
+            margin-right: 10px;
+            transition: transform 0.5s ease;
+        }
 
-.mitra-logo:hover {
-    transform: rotate(10deg) scale(1.2);
-}
+        .mitra-logo:hover {
+            transform: rotate(10deg) scale(1.2);
+        }
 
-/* Education Section */
-.education-section {
-    margin-bottom: 40px;
-}
+        /* Education Section */
+        .education-section {
+            margin-bottom: 40px;
+        }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-}
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .profile-section {
-        flex-direction: column;
-    }
-    .profile-section img {
-        margin-bottom: 20px;
-    }
-}
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+            }
+            .profile-section img {
+                margin-bottom: 20px;
+            }
+        }
 
     </style>
 </head>
@@ -249,8 +247,15 @@ footer {
     <section class="skills-section">
         <h3>Technical Skills</h3>
         <ul>
-            <li>HTML, CSS, JavaScript, PHP, MySQL</li>
-            <li>Troubleshoot Software & Hardware, CCTV, Printer, Scaner, PC Assembling</li>
+            <li>Troubleshoot Software & Hardware, CCTV, Printer, Scanner, PC Assembling</li>
+        </ul>
+        <h3>Programming Skills</h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>MySQL</li>
         </ul>
         <h3>Non-Technical Skills</h3>
         <ul>
