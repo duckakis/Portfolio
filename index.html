@@ -4,391 +4,528 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Nirwana Duckakis</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Animasi untuk seluruh container dan section */
-        .container, header, .profile-section, .skills-section, .projects-section, 
-        .experience-section, .education-section, footer {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .container.animated, header.animated, .profile-section.animated, 
-        .skills-section.animated, .projects-section.animated, 
-        .experience-section.animated, .education-section.animated, footer.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        /* Profile Section */
-        .profile-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            padding: 40px 0;
-        }
-
-        .profile-section img {
-            border-radius: 50%;
-            width: 225px; 
-            height: 300px; 
-            margin-right: 20px; 
-            transition: transform 0.3s ease;
-        }
-
-        .profile-section img:hover {
-            transform: scale(1.1);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-details {
-            max-width: 600px;
-        }
-
-        .profile-details h2 {
-            margin-top: 0;
-        }
-
-        /* Contact info */
-        .contact-info {
-            margin-top: 10px;
-        }
-
-        .contact-info p {
-            margin: 5px 0;
-        }
-
-        a:hover {
-            color: #FF0000;
-            text-decoration: underline;
-            transition: color 0.3s ease;
-        }
-
-        /* Skills Section */
-        .skills-section, .projects-section, .experience-section, .education-section {
-            margin: 40px 0;
-        }
-
-        h3 {
-            color: #0000FF;
-            position: relative;
-            display: inline-block;
-            overflow: hidden;
-            transition: color 0.3s ease;
-        }
-
-        h3:before {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #333;
-            z-index: -1;
-            transition: top 0.3s ease;
-        }
-
-        h3:hover:before {
-            top: 0;
-        }
-
-        /* Project Section */
-        .skills ul, .projects ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .skills ul li, .projects ul li {
-            margin: 10px 0;
-        }
-
-        .project-item {
-            margin-bottom: 20px;
-        }
-
-        .project-item img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border: 2px solid #ddd;
-            transition: transform 0.3s ease;
-        }
-
-        .project-item img:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
-        }
-
-        /* Experience Section */
-        .experience-section {
-            margin: 40px 0;
-        }
-
-        .experience-section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .experience-section .experience-item {
-            opacity: 1; /* Ubah menjadi 1 agar mulai terlihat */
-            transform: translateY(0); /* Reset transformasi */
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            display: flex; /* Agar logo dan konten terletak bersebelahan */
-            align-items: center; /* Pusatkan secara vertikal */
-            margin-bottom: 20px; /* Tambahkan jarak antar item */
-        }
-
-        .experience-section .experience-item img {
-            margin-right: 15px; /* Tambahkan jarak antara gambar dan teks */
-        }
-
-        .experience-section .experience-item p {
-            margin: 5px 0; /* Atur jarak paragraf dalam pengalaman kerja */
-        }
-
-        .haguro-logo, .medco-logo {
-            width: 150px; /* Ukuran standar untuk logo PT lainnya */
-            height: 100px;
-            margin-right: 10px;
-            transition: transform 0.5s ease;
-        }
-
-        .haguro-logo:hover, .medco-logo:hover {
-            transform: rotate(10deg) scale(1.1);
-        }
-
-        /* Aturan khusus untuk logo PT Mitra */
-        .mitra-logo {
-            width: 100px; /* Ukuran yang berbeda untuk PT Mitra */
-            height: 100px;
-            margin-right: 10px;
-            transition: transform 0.5s ease;
-        }
-
-        .mitra-logo:hover {
-            transform: rotate(10deg) scale(1.2);
-        }
-
-        /* Education Section */
-        .education-section {
-            margin-bottom: 40px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .profile-section {
-                flex-direction: column;
-            }
-            .profile-section img {
-                margin-bottom: 20px;
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Nirwana Duckakis</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
 
-<header>
-    <h1>Portfolio - Nirwana Duckakis</h1>
-</header>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="typing-text">Hi, I'm Nirwana Duckakis</span>
+                </h1>
+                <p class="hero-subtitle">IT Support & Helpdesk | IT Network | PC Hardware Specialist | Hybrid Meeting AV Operator | Web Developer | Technical Support</p>
+                <p class="hero-description">
+                    Providing Application and Website development services, with experience as an IT Solution.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+                <div class="hero-social">
+                    <a href="mailto:duckakis7@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+6289604990699" class="social-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/nirwana-duckakis" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <img src="assets/images/photo.png" alt="Nirwana Duckakis Profile Photo">
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
 
-<div class="container">
-    <!-- Profile Section -->
-    <section class="profile-section">
-        <img src="ana.jpeg" alt="Nirwana Duckakis">
-        <div class="profile-details">
-            <h2>Nirwana Duckakis</h2>
-            <p>Providing Application and Website development services, with experience as an IT Developer / Programmer, IT Support, IT Engineer, and IT Helpdesk</p>
-            <p><strong>Career Objective:</strong> Always taking opportunities to upgrade my skills in IT technology, while contributing to meet company needs. / I have a strong ambition to contribute to enhancing the value of the company, particularly in the field of IT, which includes software development, web applications, and other technological solutions. With a deep understanding of client needs, I can assist in developing innovative products that meet market demands. I believe that a strategic and collaborative approach will strengthen the companys position in the technology industry and provide significant added value.</p>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:duckakis7@gmail.com">duckakis7@gmail.com</a></p>
-                <p>Phone: +62 896 0499 0699</p>
-                <p>Location: Kebon Jeruk, Jakarta Barat, DKI Jakarta, Indonesia</p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/nirwana-duckakis-719438241">Nirwana Duckakis</a></p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Career Objective</h3>
+                    <p>
+                        Always taking opportunities to upgrade my skills in IT technology, while contributing to meet company needs. 
+                        I have a strong ambition to contribute to enhancing the value of the company, particularly in the field of IT, 
+                        which includes software development, web applications, and other technological solutions.
+                    </p>
+                    <p>
+                        With a deep understanding of client needs, I can assist in developing innovative products that meet market demands. 
+                        I believe that a strategic and collaborative approach will strengthen the company's position in the technology 
+                        industry and provide significant added value.
+                    </p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>duckakis7@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+62 896 0499 0699</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kelapa Dua, Kebon Jeruk, West Jakarta, DKI Jakarta, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <span class="timeline-marker"></span>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>PT Cita Solusi Indonesia</h3>
+                            <span class="timeline-date">Jakarta, Indonesia</span>
+                        </div>
+                        <h4>IT System Management, Development & Event Operations</h4>
+                        <ul>
+                            <li><strong>IT System Management & Support:</strong> Successfully managed and maintained IT systems for over 100 users at BPSDM Kementerian Perhubungan, ensuring smooth daily operations.</li>
+                            <li><strong>Application & Website Development:</strong> Contributed to the development of five key applications (company profile, registration app, quiz app, and scoring app), significantly improving operational efficiency for the Event Organizer team.</li>
+                            <li><strong>Event Technical Operations:</strong> Seamlessly managed technical operations for over 50 hybrid meetings and training sessions using platforms like Zoom, OBS Studio, and vMix.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <span class="timeline-marker"></span>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>PT Haguro Inspira Mandiri</h3>
+                            <span class="timeline-date">Jakarta, Indonesia</span>
+                        </div>
+                        <h4>IT Infrastructure Management & Support</h4>
+                        <ul>
+                            <li><strong>IT Infrastructure Management:</strong> Successfully managed and maintained the IT infrastructure for over 30 retail stores across Indonesia, ensuring seamless IT operations and business continuity.</li>
+                            <li><strong>Proactive Troubleshooting:</strong> Reduced IT downtime and technical issues by providing proactive monitoring, analysis, and troubleshooting of PCs, printers, CCTV, and network systems.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <span class="timeline-marker"></span>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>PT Medco Energi Internasional <span class="vendor">(Vendor HPKom)</span></h3>
+                            <span class="timeline-date">Jakarta, Indonesia</span>
+                        </div>
+                        <h4>Device & Data Migration</h4>
+                        <ul>
+                            <li><strong>Device Refresh Program:</strong> Successfully managed the large-scale device refresh program, facilitating the seamless transition of old devices to new ones for users at the Energy Building.</li>
+                            <li><strong>User Data Migration:</strong> Streamlined the user migration process by expertly handling data backup from old devices to new laptops and PCs.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <span class="timeline-marker"></span>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>PT Mitra Service Infotama <span class="freelance">(Freelance)</span></h3>
+                            <span class="timeline-date">Jakarta, Indonesia</span>
+                        </div>
+                        <h4>IT & Network Project Execution</h4>
+                        <ul>
+                            <li><strong>Versatile Project Execution:</strong> Successfully executed a wide range of IT projects, demonstrating adaptability and technical versatility across various client needs and technologies.</li>
+                            <li><strong>Network Infrastructure Leadership:</strong> Led the installation and activation of network infrastructure for key government and private sector clients, including Aruba SD-WAN Access Point for the Hypernet - Kominfo Project and WiFi for Kominfo RPTRA Projects.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section class="skills-section">
-        <h3>Programming Skills</h3>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>PHP</li>
-            <li>MySQL</li>
-        </ul>
-        <h3>Technical Skills</h3>
-        <ul>
-            <li>Troubleshooting Software & Hardware, CCTV, Printer, Scanner, PC Assembling</li>
-        </ul>
-        <h3>Non-Technical Skills</h3>
-        <ul>
-            <li>Analysis, Creativity, Critical Thinking, Problem Solving, Teamwork</li>
-        </ul>
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Skills</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-php"></i>
+                            <span>PHP</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-tools"></i>
+                            <span>Troubleshooting</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-video"></i>
+                            <span>CCTV</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-print"></i>
+                            <span>Printer & Scanner</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-desktop"></i>
+                            <span>PC Assembling</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Non-Technical Skills</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analysis</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Creativity</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Critical Thinking</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <span>Problem Solving</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-users"></i>
+                            <span>Teamwork</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="projects-section">
-        <h3>Projects</h3>
-        <div class="project-item">
-            <h4>Digital Registration Form for all event needs at Citra Bahana Management</h4>
-            <img src="regform.png" alt="Registration Form">
-            <p>Digital Registration Form for Citra Bahana Manajemen Events
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Digital Registration Form</h3>
+                        <p>Digital Registration Form for all event needs at Citra Bahana Management. 
+                           A fast, accurate, and user-friendly digital solution that replaces manual processes.</p>
+                        <div class="project-features">
+                            <span class="feature-tag">Responsive Design</span>
+                            <span class="feature-tag">Data Security</span>
+                            <span class="feature-tag">Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-As part of an effort to enhance efficiency and professionalism in managing company events, I designed and developed an innovative Digital Registration Form for all event needs at Citra Bahana Manajemen. This form was created to replace manual processes with a fast, accurate, and user-friendly digital solution.<br>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Podium Application</h3>
+                        <p>Interactive podium system for Cerdas Cermat competition at BULAN K3 NASIONAL HSSE UID JAYA FESTIVAL 2025. 
+                           Real-time scoring and display system.</p>
+                        <div class="project-features">
+                            <span class="feature-tag">Real-time</span>
+                            <span class="feature-tag">Interactive</span>
+                            <span class="feature-tag">Score Management</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-The primary goal of creating this form is to increase the companys value by improving the participant and event committee experience. With a more organized and automated registration system, this form helps the company reduce data errors, speed up the registration process, and ensure more structured data management.<br><br>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Motorcycle Marketplace</h3>
+                        <p>Online platform dedicated to buying and selling motorcycles. Connects buyers with sellers, 
+                           offering secure transactions and user-friendly experience.</p>
+                        <div class="project-features">
+                            <span class="feature-tag">E-commerce</span>
+                            <span class="feature-tag">Secure Payment</span>
+                            <span class="feature-tag">User Management</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-Key Features:<br>
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Wedding Invitation</h3>
+                        <p>Beautiful digital wedding invitation with elegant design and interactive features. 
+                           Modern approach to traditional wedding invitations.</p>
+                        <div class="project-features">
+                            <span class="feature-tag">Digital Design</span>
+                            <span class="feature-tag">Interactive</span>
+                            <span class="feature-tag">Responsive</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-Responsive & User-friendly Design: Ensures a seamless registration experience on both desktop and mobile devices.<br>
-Automation & Data Processing: Reduces administrative workload and enables faster and more effective data management.<br>
-Enhanced Professionalism for the Company: Provides a modern and organized impression to event participants and stakeholders.<br>
-Data Security: Ensures the protection of participants personal information with reliable encryption systems.<br><br>
-With this digital registration form, Citra Bahana Manajemen can now host events more professionally and efficiently, while enhancing the companys image in the eyes of clients and business partners.
-
-</p>
-            <p>Link: <a href="">Registration Form</a></p>
-        </div>
-        <div class="project-item">
-            <h4>Podium Application for Cerdas Cermat at BULAN K3 NASIONAL HSSE UID JAYA FESTIVAL 2025</h4>
-            <img src="Podium.png" alt="Podium">
-            <p>To enhance the efficiency and excitement of the Cerdas Cermat competition during the BULAN K3 NASIONAL HSSE UID JAYA FESTIVAL 2025, I developed a Podium Application designed specifically to manage real-time interaction between participants and the MC, while also displaying the results live to the audience.<br>
-
-            In this event, the MC presents the questions, and participants compete to press the button first to answer. The operator is responsible for entering the participants answer (correct or incorrect) into the application, which then automatically updates the participants score. Afterward, the operator displays the updated scores and other information on a large screen visible to all participants and the audience, ensuring transparency and clarity throughout the competition.<br><br>
-
-            Key Features:<br>
-
-            Real-time Button Response: The system detects the participant who presses the button first, ensuring the competition is fast and orderly.<br>
-            Score Input by Operator: The operator enters the participants answer (correct or incorrect) into the application, which automatically updates the score.<br>
-            Results Displayed on the Big Screen: After scores are entered, the operator displays the updated scores and relevant information on a large screen for everyone to see, ensuring transparency and organization.<br>
-            Organized Process: The application ensures the competition runs smoothly, reducing manual errors and enhancing the experience for both participants and the audience.<br>
-            Interactive & Professional: Creates a dynamic and professional competition atmosphere, improving the overall quality of the event.<br><br>
-            With this Podium Application, the Cerdas Cermat competition at the BULAN K3 NASIONAL HSSE UID JAYA FESTIVAL 2025 runs more efficiently, fairly, and engagingly. The technology implemented ensures smooth event execution while providing an interactive experience, boosting professionalism and excitement throughout the competition.</p>
-            <p>Link: <a href="">Podium</a></p>
-        </div>
-        <div class="project-item">
-            <h4>Marketplace</h4>
-            <img src="marketplace.jpg" alt="Marketplace Project">
-            <p>Description: Our marketplace is an online platform dedicated to buying and selling motorcycles. It connects buyers with sellers, offering a wide variety of motorcycles, accessories, and related services. Users can browse through detailed listings, compare different models, and make secure transactions all in one place. The platform ensures a smooth, user-friendly experience with features like secure payment options, reliable customer support, and easy navigation. Whether you're looking for a new or used motorcycle, our marketplace provides a convenient and efficient way to find exactly what you need.</p>
-            <p>Link: <a href="https://duckakismarketplace.ct.ws/">Market Place</a></p>
-            <!-- Repeat image for 14 photos -->
-        </div>
-        <div class="project-item">
-            <h4>Wedding Invitation</h4>
-            <img src="wedding.png" alt="Wedding Invitation Project">
-            <p>Description: A digital wedding invitation.</p>
-            <p>Link: <a href="https://duckakis.github.io/Wedding-Invitation/">Wedding Invitation</a></p>
+            </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-<section class="experience-section">
-    <h3>Work Experience</h3>
-    <ul>
-        <li class="experience-item">
-            <img class="cbm-logo" src="cbm.png" alt="PT Citra Bahana Manajemen Logo">
-            <div>
-                <strong>PT Cita Solusi Indoensia</strong> - IT Helpdesk / Pogramer Developer Support (February 2025 -  Now)
-                <p>Responsible for ensuring the smooth operation of IT needs for BPSDM users. Also serves as a Programmer / Developer for application development based on the needs of the Event Organizer company.</p>
-            </div>
-        </li>
-        <li class="experience-item">
-            <img class="haguro-logo" src="haguro.png" alt="PT Haguro Logo">
-            <div>
-                <strong>PT Haguro Inspira Mandiri</strong> - IT Helpdesk / Support (April 2023 - January 2025)
-                <p>Responsible for ensuring the smooth operation of IT needs, including monitoring, analysis, maintenance, technical support, and troubleshooting of IT equipment such as PC, printer, CCTV, and internet networks in offices and stores. Currently, there are more than 30 stores spread across Indonesia.</p>
-            </div>
-        </li>
-        <li class="experience-item">
-            <img class="medco-logo" src="medco.jpg" alt="PT Medco Logo">
-            <div>
-                <strong>PT Medco Energi Internasional (Vendor HPKOM)</strong> - IT Deployment Engineer (February 2022 - February 2023)
-                <p>Deployment Support Engineer at Energy building refresh the users device by handing over the old device for a new device. also handles troubleshooting on user device needs.
-</p>
-            </div>
-        </li>
-        <li class="experience-item">
-            <img class="mitra-logo" src="mitseri.jpg" alt="PT Mitra Logo">
-            <div>
-                <strong>PT Mitra Service Infomata</strong> - IT Engineer Freelance
-                <p>Aruba SD-WAN accesspoint Installation Hypernet - Kominfo Project <br>
-                Staging Bios dan Office 365 Astragraphia Warehouse <br>
-                ICON+ Hypernet Wifi Activation – Kominfo RPTRA Projects <br>
-                Staging and Installation Software BPJS user - PT. Harvest Perdana Kompakindo <br>
-                Android Checker & Maintenance DAV Alfamart </p>
-            </div>
-        </li>
-    </ul>
-</section>
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>IT Helpdesk / Programmer Developer Support</h3>
+                            <span class="timeline-date">February 2025 - Present</span>
+                        </div>
+                        <h4>PT Cita Solusi Indonesia</h4>
+                        <p>Responsible for ensuring the smooth operation of IT systems and support for users at
+                        Kementrian Perhubungan (BPSDM). Tasks include troubleshooting hardware and
+                        software issues, configuring LAN and IP settings, performing RJ45 cable crimping,
+                        diagnosing printer and scanner problems, assembling and maintaining PC, laptop, and
+                        all-in-one device, and providing on-site technical assistance. Also served as a technical
+                        operator for hybrid meetings and training sessions using Zoom, OBS Studio, and vMix.
+                        Additionally contributed as a programmer/developer for application and website
+                        development based on the operational needs of the Event Organizer company.</p>
+                    </div>
+                </div>
 
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>IT Helpdesk / Support</h3>
+                            <span class="timeline-date">April 2023 - January 2025</span>
+                        </div>
+                        <h4>PT Haguro Inspira Mandiri</h4>
+                        <p>Responsible for ensuring the smooth operation of IT needs, including monitoring, analysis, maintenance, 
+                           technical support, and troubleshooting of IT equipment such as PC, printer, CCTV, and internet networks 
+                           in offices and stores. Currently, there are more than 30 stores spread across Indonesia.</p>
+                    </div>
+                </div>
 
-    <!-- Education Section -->
-    <section class="education-section">
-        <h3>Education</h3>
-        <p><strong>Universitas Satya Negara Indonesia, S.Kom</strong> - Teknik Informatika (2017 - 2021), GPA: 3.16</p>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>IT Deployment Engineer</h3>
+                            <span class="timeline-date">February 2022 - February 2023</span>
+                        </div>
+                        <h4>PT Medco Energi Internasional (Vendor HPKOM)</h4>
+                        <p>Responsible for managing the device refresh program, facilitating the handover of old devices (laptops and desktop PCs) and replacing them with new ones. Provided comprehensive user support, including assisting with data backup from old devices to new ones, guiding users through the initial login process, and installing necessary applications to meet their specific needs.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>IT Engineer Freelance</h3>
+                            <span class="timeline-date">Various Projects</span>
+                        </div>
+                        <h4>PT Mitra Service Infomata</h4>
+                        <ul>
+                            <li>Aruba SD-WAN accesspoint Installation Hypernet - Kominfo Project</li>
+                            <li>Staging Bios dan Office 365 Astragraphia Warehouse</li>
+                            <li>ICON+ Hypernet Wifi Activation – Kominfo RPTRA Projects</li>
+                            <li>Staging and Installation Software BPJS user - PT. Harvest Perdana Kompakindo</li>
+                            <li>Android Checker & Maintenance DAV Alfamart</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Education -->
+            <div class="education-section">
+                <h3>Education</h3>
+                <div class="education-item">
+                    <div class="education-content">
+                        <h4>S.Kom - Teknik Informatika</h4>
+                        <h5>Universitas Satya Negara Indonesia</h5>
+                        <span class="education-date">2017 - 2021 • GPA: 3.16</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-</div>
 
-<footer>
-    <p>&copy; 2024 Nirwana Duckakis | All Rights Reserved</p>
-</footer>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const elements = document.querySelectorAll('.container, header, .profile-section, .skills-section, .projects-section, .experience-section, .education-section, footer');
-        
-        function animateOnScroll() {
-            elements.forEach(function(element) {
-                const position = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p>I'm always open to discussing new opportunities, interesting projects, or ways to be part of your vision.</p>
+                    
+                    <div class="contact-items">
+                        <a href="mailto:duckakis7@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <span>duckakis7@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:+6289604990699" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <span>+62 896 0499 0699</span>
+                            </div>
+                        </a>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <span>Kelapa Dua, Kebon Jeruk, West Jakarta, DKI Jakarta, Indonesia</span>
+                            </div>
+                        </div>
+                        <a href="https://linkedin.com/in/nirwana-duckakis" class="contact-item" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <span>Nirwana Duckakis</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                if (position - windowHeight <= 0) {
-                    element.classList.add('animated');
-                } else {
-                    element.classList.remove('animated'); // Reset kelas saat elemen tidak terlihat
-                }
-            });
-        }
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Nirwana Duckakis | All Rights Reserved</p>
+                <div class="footer-social">
+                    <a href="mailto:duckakis7@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+6289604990699" class="social-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/nirwana-duckakis" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll(); // Trigger on load
-    });
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
