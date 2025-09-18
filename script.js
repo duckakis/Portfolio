@@ -109,8 +109,11 @@ function initScrollEffects() {
         const scrolled = window.pageYOffset;
         const heroImage = document.querySelector('.hero-image');
         
-        if (heroImage) {
-            heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
+        // Cek jika lebar layar lebih besar dari 768px (sesuai breakpoint di CSS)
+        if (window.innerWidth > 768) {
+            if (heroImage) {
+                heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
         }
     });
 }
@@ -545,4 +548,5 @@ console.log(`
 📧 Contact: duckakis7@gmail.com
 💼 LinkedIn: https://linkedin.com/in/nirwana-duckakis
 🔧 Built with HTML, CSS, and JavaScript
+
 `);
