@@ -109,11 +109,8 @@ function initScrollEffects() {
         const scrolled = window.pageYOffset;
         const heroImage = document.querySelector('.hero-image');
         
-        // Cek jika lebar layar lebih besar dari 768px (sesuai breakpoint di CSS)
-        if (window.innerWidth > 768) {
-            if (heroImage) {
-                heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
+        if (heroImage) {
+            heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
         }
     });
 }
@@ -193,7 +190,7 @@ function initTypingEffect() {
     setTimeout(typeWriter, 1000);
 }
 
-// Form Handler
+// Form Handler - Email Integration
 function initFormHandler() {
     const contactForm = document.querySelector('.contact-form form');
     
@@ -202,11 +199,10 @@ function initFormHandler() {
             e.preventDefault();
             
             // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
+            const name = this.querySelector('#name').value.trim();
+            const email = this.querySelector('#email').value.trim();
+            const subject = this.querySelector('#subject').value.trim();
+            const message = this.querySelector('#message').value.trim();
             
             // Simple form validation
             if (!name || !email || !subject || !message) {
@@ -219,18 +215,46 @@ function initFormHandler() {
                 return;
             }
             
-            // Simulate form submission
-            const submitBtn = this.querySelector('.btn-primary');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
+            // Create email subject with sender info
+            const emailSubject = `Message from ${name} - Portfolio Website`;
             
+            // Create email body with formatted message
+            const emailBody = `
+Hello Nirwana,
+
+I received a message from your portfolio website:
+
+---
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+
+Message:
+${message}
+
+---
+I'm interested in working together or discussing further.
+Thank you!
+
+---
+This message was sent from Nirwana Duckakis' portfolio website
+            `.trim();
+            
+            // Encode for URL
+            const encodedSubject = encodeURIComponent(emailSubject);
+            const encodedBody = encodeURIComponent(emailBody);
+            
+            // Create mailto link
+            const mailtoLink = `mailto:duckakis7@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Show success notification
             setTimeout(() => {
-                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
+                showNotification('Email opened successfully! Please send your message.', 'success');
+                this.reset(); // Clear form
+            }, 500);
         });
     }
 }
@@ -548,5 +572,106 @@ console.log(`
 📧 Contact: duckakis7@gmail.com
 💼 LinkedIn: https://linkedin.com/in/nirwana-duckakis
 🔧 Built with HTML, CSS, and JavaScript
-
 `);
+
+// Fixed Notification System - WhatsApp Color Issue
+// Function for displaying notifications
+function showNotification(message, type = 'info') {
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-message">${message}</span>
+            <button class="notification-close">&times;</button>
+        </div>
+    `;
+
+    let bgColor, borderColor;
+    const textColor = 'white';
+
+    switch(type) {
+        case 'success':
+            bgColor = '#10b981';
+            borderColor = '#059669';
+            break;
+        case 'error':
+            bgColor = '#ef4444';
+            borderColor = '#dc2626';
+            break;
+        default:
+            // Mengikuti tema utama untuk semua notifikasi default
+            bgColor = 'var(--primary-color, #2563eb)';
+            borderColor = 'var(--secondary-color, #1e40af)';
+    }
+
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: ${bgColor};
+        border-left: 4px solid ${borderColor};
+        color: ${textColor};
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        z-index: 10000;
+        transform: translateX(400px);
+        transition: all 0.3s ease;
+        max-width: 350px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        line-height: 1.4;
+    `;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
+        notification.style.transform = 'translateX(400px)';
+        setTimeout(() => notification.remove(), 300);
+    });
+
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.style.transform = 'translateX(400px)';
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 4000);
+}
+
+// Fixed WhatsApp function
+function openWhatsApp() {
+    const whatsappMessage = `Hello Nirwana! 👋
+
+I'm reaching out regarding your portfolio. I came across your impressive work in:
+• IT Support & Helpdesk
+• Web Development 
+• Network Infrastructure
+• Event Technical Operations
+
+Could we discuss potential collaboration opportunities?
+
+Looking forward to hearing from you! 😊`;
+    
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const phoneNumber = '6289604990699';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Fixed WhatsApp notification - Biru dengan border hijau
+    showNotification('WhatsApp opened! Start chatting now.', 'whatsapp');
+    
+    console.log('WhatsApp opened - Fixed notification color');
+}
