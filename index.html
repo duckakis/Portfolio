@@ -35,6 +35,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-container">
+            <!-- Hero Section - Update bagian ini -->
             <div class="hero-content">
                 <h1 class="hero-title">
                     <span class="typing-text">Hi, I'm Nirwana Duckakis</span>
@@ -48,14 +49,21 @@
                     <a href="#projects" class="btn btn-secondary">View Projects</a>
                 </div>
                 <div class="hero-social">
-                    <a href="mailto:duckakis7@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="tel:+6289604990699" class="social-link">
+                    <!-- Phone -->
+                    <a href="tel:+6289604990699" class="social-link" title="Call">
                         <i class="fas fa-phone"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/nirwana-duckakis-719438241" class="social-link" aria-label="LinkedIn">
+                    <!-- Email -->
+                    <a href="mailto:duckakis7@gmail.com" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/nirwana-duckakis-719438241" class="social-link" target="_blank" title="LinkedIn">
                         <i class="fab fa-linkedin"></i>
+                    </a>
+                    <!-- WhatsApp - TAMBAHAN BARU -->
+                    <a href="#" class="social-link whatsapp-social" onclick="openWhatsApp()" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
             </div>
@@ -454,18 +462,18 @@
                     <p>I'm always open to discussing new opportunities, interesting projects, or ways to be part of your vision.</p>
                     
                     <div class="contact-items">
-                        <a href="mailto:duckakis7@gmail.com" class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <span>duckakis7@gmail.com</span>
-                            </div>
-                        </a>
                         <a href="tel:+6289604990699" class="contact-item">
                             <i class="fas fa-phone"></i>
                             <div>
                                 <h4>Phone</h4>
                                 <span>+62 896 0499 0699</span>
+                            </div>
+                        </a>
+                        <a href="mailto:duckakis7@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <span>duckakis7@gmail.com</span>
                             </div>
                         </a>
                         <div class="contact-item">
@@ -482,9 +490,18 @@
                                 <span>Nirwana Duckakis</span>
                             </div>
                         </a>
+                        <!-- Tambahkan ini di dalam contact-items, setelah email contact -->
+                        <a href="#" class="contact-item whatsapp-contact" onclick="openWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <span>+62 896 0499 0699</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 
+                <!-- Contact Form Section -->
                 <div class="contact-form">
                     <form>
                         <div class="form-group">
@@ -499,27 +516,37 @@
                         <div class="form-group">
                             <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - Update bagian ini -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <p>&copy; 2024 Nirwana Duckakis | All Rights Reserved</p>
                 <div class="footer-social">
-                    <a href="mailto:duckakis7@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                    <!-- Phone -->
                     <a href="tel:+6289604990699" class="social-link">
                         <i class="fas fa-phone"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/nirwana-duckakis-719438241" class="social-link" aria-label="LinkedIn">
+                    <!-- Email -->
+                    <a href="mailto:duckakis7@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/nirwana-duckakis-719438241" class="social-link" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
+                    </a>
+                    <!-- WhatsApp - TAMBAHAN BARU -->
+                    <a href="#" class="social-link whatsapp-social" onclick="openWhatsApp()" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
             </div>
@@ -529,6 +556,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
