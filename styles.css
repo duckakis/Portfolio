@@ -1526,14 +1526,14 @@ html {
 @media (max-width: 768px) {
     /* ... kode lain ... */
 
-    /* Override Hero Image behavior on mobile */
     .hero-image {
-        position: fixed; /* Kunci posisi foto */
-        top: 25vh;       /* Posisikan foto 25% dari atas viewport */
-        left: 50%;       /* Pusatkan secara horizontal */
-        transform: translateX(-50%); /* Penyesuaian agar benar-benar di tengah */
-        animation: none; /* Matikan animasi float */
-        z-index: -1;     /* Letakkan di belakang konten teks */
-        opacity: 1;      /* Pastikan foto terlihat */
+        position: fixed;    /* Mengunci foto agar tidak ikut di-scroll */
+        top: 25vh;          /* Posisikan 25% dari atas layar */
+        left: 50%;
+        transform: translateX(-50%);
+        animation: none;    /* Matikan animasi float */
+        z-index: -1;        /* Letakkan di belakang konten lain */
     }
+
+    /* ... kode lain ... */
 }
