@@ -992,4 +992,532 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary-color);
+
+}
+
+/* Notification Styles */
+.notification-error {
+    background: #ef4444 !important;
+}
+
+.notification-success {
+    background: #10b981 !important;
+}
+
+.notification-message {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* WhatsApp Contact - Sama Persis dengan Lainnya (Tanpa Garis Khusus) */
+.contact-items .whatsapp-contact {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-light);
+    border: none; /* Tidak ada border khusus */
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-items .whatsapp-contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(37, 211, 102, 0.08), /* Shimmer hijau sangat ringan */
+        transparent
+    );
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.contact-items .whatsapp-contact:hover::before {
+    left: 100%;
+}
+
+.contact-items .whatsapp-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+    background: linear-gradient(135deg, 
+        rgba(37, 211, 102, 0.02) 0%, 
+        white 100% /* Background tetap putih */
+    );
+}
+
+/* WhatsApp Icon - Sama dengan yang lain tapi dengan aksen hijau */
+.contact-items .whatsapp-contact i {
+    font-size: 1.5rem;
+    color: #25D366; /* Icon hijau WhatsApp */
+    width: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contact-items .whatsapp-contact:hover i {
+    color: #20ba5a; /* Hijau lebih terang saat hover */
+    transform: scale(1.1);
+}
+
+/* WhatsApp Text - Sama dengan yang lain */
+.contact-items .whatsapp-contact h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.contact-items .whatsapp-contact:hover h4 {
+    color: #25D366; /* Text berubah hijau saat hover */
+}
+
+.contact-items .whatsapp-contact span {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.contact-items .whatsapp-contact:hover span {
+    color: #25D366; /* Nomor berubah hijau saat hover */
+}
+
+/* Pastikan semua contact-item punya hover effect yang konsisten */
+.contact-items .contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Contact-item khusus yang bukan link (Location) */
+.contact-items .contact-item:not(.contact-item a) {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-light);
+    cursor: default;
+}
+
+.contact-items .contact-item:not(.contact-item a):hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.contact-items .contact-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    width: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contact-items .contact-item:hover i {
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+/* Responsive untuk semua contact items */
+@media (max-width: 768px) {
+    .contact-items .contact-item,
+    .contact-items .whatsapp-contact {
+        padding: 1.25rem;
+        gap: 0.75rem;
+    }
+    
+    .contact-items .contact-item i,
+    .contact-items .whatsapp-contact i {
+        font-size: 1.3rem;
+        width: 25px;
+    }
+    
+    .contact-items .contact-item h4,
+    .contact-items .whatsapp-contact h4 {
+        font-size: 1rem;
+    }
+    
+    .contact-items .contact-item span,
+    .contact-items .whatsapp-contact span {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-items {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .contact-items .contact-item,
+    .contact-items .whatsapp-contact {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .contact-items .contact-item i,
+    .contact-items .whatsapp-contact i {
+        width: auto;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Hero Social Links - Tetap seperti sebelumnya */
+.hero-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    text-decoration: none;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--shadow-medium);
+}
+
+/* WhatsApp di Hero - Lingkaran dengan aksen hijau */
+.whatsapp-social {
+    border: 2px solid transparent;
+}
+
+.whatsapp-social i {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-social:hover {
+    border-color: #25D366;
+}
+
+.whatsapp-social:hover i {
+    color: #25D366;
+}
+
+/* Email, Phone, LinkedIn di Hero */
+.social-link[href^="mailto"] i {
+    color: var(--primary-color);
+}
+
+.social-link[href^="mailto"]:hover {
+    background: var(--primary-color);
+}
+
+.social-link[href^="mailto"]:hover i {
+    color: white;
+}
+
+.social-link[href^="tel"] i {
+    color: #ef4444;
+}
+
+.social-link[href^="tel"]:hover {
+    background: #ef4444;
+}
+
+.social-link[href^="tel"]:hover i {
+    color: white;
+}
+
+.social-link[href*="linkedin"] i {
+    color: #0077b5;
+}
+
+.social-link[href*="linkedin"]:hover {
+    background: #0077b5;
+}
+
+.social-link[href*="linkedin"]:hover i {
+    color: white;
+}
+
+/* Responsive Hero Social */
+@media (max-width: 768px) {
+    .hero-social {
+        gap: 0.75rem;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    
+    .social-link {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .social-link i {
+        font-size: 1.1rem;
+    }
+}
+
+/* Footer Social Links */
+.footer {
+    background: var(--bg-dark);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-content p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* Footer Social Link Base */
+.footer-social .social-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.1rem;
+}
+
+.footer-social .social-link:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer WhatsApp Social Link - Mengikuti Gaya LinkedIn */
+.footer-social .whatsapp-social {
+    background: rgba(37, 99, 235, 0.2); /* Menggunakan warna primary dengan opacity */
+    border-color: rgba(30, 64, 175, 0.3); /* Menggunakan warna secondary dengan opacity */
+}
+
+.footer-social .whatsapp-social i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.footer-social .whatsapp-social:hover {
+    background: var(--primary-color);
+    border-color: var(--secondary-color);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.footer-social .whatsapp-social:hover i {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Footer Email */
+.footer-social .social-link[href^="mailto"] {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.footer-social .social-link[href^="mailto"] i {
+    color: var(--primary-color);
+}
+
+.footer-social .social-link[href^="mailto"]:hover {
+    background: var(--primary-color);
+    border-color: var(--secondary-color);
+}
+
+.footer-social .social-link[href^="mailto"]:hover i {
+    color: white;
+}
+
+/* Footer Phone */
+.footer-social .social-link[href^="tel"] {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.footer-social .social-link[href^="tel"] i {
+    color: #ef4444;
+}
+
+.footer-social .social-link[href^="tel"]:hover {
+    background: #ef4444;
+    border-color: #dc2626;
+}
+
+.footer-social .social-link[href^="tel"]:hover i {
+    color: white;
+}
+
+/* Footer LinkedIn */
+.footer-social .social-link[href*="linkedin"] {
+    background: rgba(0, 119, 181, 0.2);
+    border-color: rgba(0, 119, 181, 0.3);
+}
+
+.footer-social .social-link[href*="linkedin"] i {
+    color: #0077b5;
+}
+
+.footer-social .social-link[href*="linkedin"]:hover {
+    background: #0077b5;
+    border-color: #005885;
+}
+
+.footer-social .social-link[href*="linkedin"]:hover i {
+    color: white;
+}
+
+/* Footer Shimmer Effect untuk WhatsApp */
+.footer-social .whatsapp-social::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent
+    );
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.footer-social .whatsapp-social:hover::before {
+    left: 100%;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .footer-social {
+        gap: 0.5rem;
+        justify-content: center;
+    }
+    
+    .footer-social .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .footer-content p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-social {
+        gap: 0.4rem;
+    }
+    
+    .footer-social .social-link {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .footer-social .social-link i {
+        font-size: 0.9rem;
+    }
+}
+
+/* Notification Fix - Additional Styles */
+.notification {
+    backdrop-filter: blur(10px);
+}
+
+.notification.whatsapp {
+    background: var(--primary-color, #2563eb) !important;
+    border-left-color: #25D366 !important;
+}
+
+.notification .notification-message {
+    flex: 1;
+}
+
+.notification.whatsapp .notification-message span:last-child {
+    color: white !important;
+}
+
+/* Ensure smooth transitions */
+.notification {
+    animation: slideInRight 0.3s ease forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(400px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fix for mobile notifications */
+@media (max-width: 480px) {
+    .notification {
+        right: 10px !important;
+        left: 10px !important;
+        max-width: none !important;
+        border-radius: 8px;
+        top: 20px !important;
+    }
+    
+    .notification-content {
+        gap: 0.5rem;
+    }
+    
+    .notification-close {
+        font-size: 1.1rem;
+    }
 }
