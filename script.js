@@ -69,6 +69,13 @@ function initNavigation() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
+            
+            // Handle external links (Education university link)
+            if (targetId.startsWith('http')) {
+                window.open(targetId, '_blank');
+                return;
+            }
+            
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
@@ -99,9 +106,9 @@ function initScrollEffects() {
             });
         }, observerOptions);
 
-        // Add fade-in class to elements
+        // Add fade-in class to elements including new education cards
         const elementsToAnimate = document.querySelectorAll(
-            '.skill-category, .project-card, .timeline-item, .contact-item, .education-item'
+            '.skill-category, .project-card, .timeline-item, .contact-item, .education-card, .thesis-card'
         );
         
         elementsToAnimate.forEach(element => {
@@ -159,6 +166,18 @@ function initAnimations() {
         });
     });
 
+    // Education and Thesis cards hover effects
+    const educationCards = document.querySelectorAll('.education-card, .thesis-card');
+    educationCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
     // Timeline animation
     if ('IntersectionObserver' in window) {
         const timelineItems = document.querySelectorAll('.timeline-item');
@@ -209,6 +228,7 @@ I'm reaching out regarding your portfolio. I came across your impressive work in
 • Web Development 
 • Network Infrastructure
 • Event Technical Operations
+• IoT Development
 
 Could we discuss potential collaboration opportunities?
 
@@ -609,11 +629,13 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Console welcome message
+// Console welcome message - Updated with education info
 console.log(`
-🎉 Welcome to Nirwana Duckakis Portfolio!
+🎓 Welcome to Nirwana Duckakis Portfolio!
 📧 Contact: duckakis7@gmail.com
 📱 WhatsApp: +62 896 0499 0699
 💼 LinkedIn: https://linkedin.com/in/nirwana-duckakis
+🎓 Education: Universitas Satya Negara Indonesia - S.Kom Teknik Informatika
+📚 Thesis: IoT-based Wedding Visitor Control System
 🔧 Built with HTML, CSS, and JavaScript
 `);
